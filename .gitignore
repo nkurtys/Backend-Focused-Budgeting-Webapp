@@ -30,7 +30,7 @@ coverage/
 libpeerconnection.log/
 testem.log
 typings/
-.angular/cache
+.angular/
 __screenshots__/
 
 # e2e
