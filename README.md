@@ -2,6 +2,8 @@
 C# Dotnet + react + Postgres(in docker)
 
 # Folder Structure
+
+```
 Project/
 ├── Project.UI/                    # React frontend
 │   ├── public/
@@ -36,9 +38,10 @@ Project/
 │
 └── Project.Docker/
     └── docker-compose.yml
+    
+```
 
 # Project.Angular.Ui
-# ProjectAngularUi
 
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.0.0.
 
@@ -54,7 +57,7 @@ Once the server is running, open your browser and navigate to `http://localhost:
 
 ## Code scaffolding
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+To generate a new component, run:
 
 ```bash
 ng generate component component-name
@@ -92,7 +95,7 @@ For end-to-end (e2e) testing, run:
 ng e2e
 ```
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+For this project I picked Playwright.
 
 ## Additional Resources
 
