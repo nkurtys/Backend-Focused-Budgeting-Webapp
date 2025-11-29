@@ -1,6 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Project.API", "Project.API\Project.API.csproj", "{A40B6985-AA3B-440D-AC5D-25746C3A0B9F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Project.API.internal", "Project.API.internal\Project.API.internal.csproj", "{A40B6985-AA3B-440D-AC5D-25746C3A0B9F}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Project.API.Data", "Project.API.Data\Project.API.Data.csproj", "{9A4BF7BA-85BE-46EF-8CF2-D3D9F907D099}"
 EndProject
