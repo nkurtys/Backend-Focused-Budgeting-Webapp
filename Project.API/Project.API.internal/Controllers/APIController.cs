@@ -13,57 +13,42 @@ using Data.Entities;
 
 [ApiController]
 [Route("api/[controller]")]
-public class ContactController : ControllerBase
+public class UsersController : ControllerBase
 {
-    private const string ConnectionString = "Host=127.0.0.1;Port=5432;Database=mydb;Username=myuser;Password=mypassword";
+    // DatabaseContext as variable
+    private readonly AppDbContext _context;
+
+    // Controller Constructor
+    public UsersController(AppDbContext context)
+    {
+        _context = context;
+    }
+
+    // Class Function POST
 
     [HttpPost]
-    public IActionResult Post([FromBody]ContactForm form)
+    public async Task<IActionResult> AddUser([FromBody]User user)
     {
-        try
+        if (!ModelState.IsValid)
         {
-            using var db = new AppDbContext();
-
-            // Create
-            db.Users.Add(new User { Name = "Alice", Age = 25 });
-            db.SaveChanges();
-
-
-
-            // Update
-            var alice = db.Users.First(u => u.Name == "Alice");
-            alice.Age = 26;
-            db.SaveChanges();
-
-
-
-            cmd.ExecuteNonQuery();
-
-            return Ok(new { status = "Success" });
+            return BadRequest(ModelState);
         }
-        catch (Exception ex)
-        {
-            return BadRequest(new { status = "Error", message = ex.Message });
-        }
+
+        _context.Users.Add(user);
+        await _context.SaveChangesAsync();
+        return Ok(user);
     }
 }
 
-public class ContactForm
-{
-    [Required]
-    public string Name { get; set; }
-    [Required]
-    [EmailAddress] public string Email { get; set; }
-}
 
 
-// Delete
+/*// Delete
 db.Users.Remove(alice);
 db.SaveChanges();
 
 // Read
-var users = db.Users.ToList();
+User users = db.Users.ToList();
 foreach (var user in users)
 {
     Console.WriteLine($"{user.Id} - {user.Name} - {user.Age}");
-}
+}*/
